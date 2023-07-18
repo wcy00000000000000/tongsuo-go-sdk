@@ -498,13 +498,13 @@ const SSL_METHOD *X_TLSv1_2_method() {
 }
 
 const SSL_METHOD *X_NTLS_method() {
-	return NTLS_method();
+	return NULL;
 }
 const SSL_METHOD *X_NTLS_client_method() {
-	return NTLS_client_method();
+	return NULL;
 }
 const SSL_METHOD *X_NTLS_server_method() {
-	return NTLS_server_method();
+	return NULL;
 }
 
 int X_SSL_CTX_new_index() {
@@ -512,7 +512,7 @@ int X_SSL_CTX_new_index() {
 }
 
 void X_SSL_CTX_enable_ntls(SSL_CTX* ctx) {
-	return SSL_CTX_enable_ntls(ctx);
+	return;
 }
 
 long X_SSL_CTX_set_options(SSL_CTX* ctx, long options) {

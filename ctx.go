@@ -222,7 +222,7 @@ func (c *Ctx) UseSignCertificate(cert *Certificate) error {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
 	c.cert = cert
-	if int(C.SSL_CTX_use_sign_certificate(c.ctx, cert.x)) != 1 {
+	if int(C.SSL_CTX_use_certificate(c.ctx, cert.x)) != 1 {
 		return errorFromErrorQueue()
 	}
 	return nil
@@ -234,7 +234,7 @@ func (c *Ctx) UseEncryptCertificate(cert *Certificate) error {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
 	c.encCert = cert
-	if int(C.SSL_CTX_use_enc_certificate(c.ctx, cert.x)) != 1 {
+	if int(C.SSL_CTX_use_certificate(c.ctx, cert.x)) != 1 {
 		return errorFromErrorQueue()
 	}
 	return nil
@@ -272,7 +272,7 @@ func (c *Ctx) UseSignPrivateKey(key PrivateKey) error {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
 	c.key = key
-	if int(C.SSL_CTX_use_sign_PrivateKey(c.ctx, key.evpPKey())) != 1 {
+	if int(C.SSL_CTX_use_PrivateKey(c.ctx, key.evpPKey())) != 1 {
 		return errorFromErrorQueue()
 	}
 	return nil
@@ -284,7 +284,7 @@ func (c *Ctx) UseEncryptPrivateKey(key PrivateKey) error {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
 	c.encKey = key
-	if int(C.SSL_CTX_use_enc_PrivateKey(c.ctx, key.evpPKey())) != 1 {
+	if int(C.SSL_CTX_use_PrivateKey(c.ctx, key.evpPKey())) != 1 {
 		return errorFromErrorQueue()
 	}
 	return nil

@@ -1,4 +1,4 @@
-module github.com/tongsuo-project/tongsuo-go-sdk
+module github.com/wcy00000000000000/tongsuo-go-sdk
 
 go 1.19
 
